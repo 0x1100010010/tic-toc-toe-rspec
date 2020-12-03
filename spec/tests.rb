@@ -79,5 +79,4 @@ describe Game do
       expect(game.check_winner([['X', ' ', 'O'], [' ', 'O', ' '], ['O', ' ', 'X']])).to eql(2)
     end
   end
-
 end
