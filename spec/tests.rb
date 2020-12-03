@@ -54,4 +54,30 @@ describe Game do
       expect(game.data).to eql([['X', ' ', ' '], [' ', 'O', ' '], [' ', ' ', ' ']])
     end
   end
+
+  describe '[Check Winner Class] >>'.bold.blue do
+    it 'Check row winner?' do
+      expect(game.check_winner([%w[X X X], [' ', ' ', ' '], [' ', ' ', ' ']])).to eql(1)
+    end
+
+    it 'Check alternative row winner?' do
+      expect(game.check_winner([['X', ' ', 'X'], %w[O O O], [' ', ' ', ' ']])).to eql(2)
+    end
+
+    it 'Check column winner?' do
+      expect(game.check_winner([%w[O X X], ['O', ' ', ' '], ['O', ' ', ' ']])).to eql(2)
+    end
+
+    it 'Check alternative column winner?' do
+      expect(game.check_winner([['O', ' ', 'X'], [' ', 'O', 'X'], [' ', ' ', 'X']])).to eql(1)
+    end
+    it 'Check diagonal winner?' do
+      expect(game.check_winner([['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X']])).to eql(1)
+    end
+
+    it 'Check reverse diagonal winner?' do
+      expect(game.check_winner([['X', ' ', 'O'], [' ', 'O', ' '], ['O', ' ', 'X']])).to eql(2)
+    end
+  end
+
 end
